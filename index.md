@@ -4,9 +4,6 @@ Later I tried to learn the database !
 And today I prepared these methods so that novices can use the database more easily.
 
 _I hope it is useful for you._
->saeed
-  >mmd
-    >miti
 
 # Guide
 In the following, I have written a description on how to use it
