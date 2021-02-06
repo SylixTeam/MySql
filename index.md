@@ -28,14 +28,14 @@ In the following, I have written a description on how to use it
 
 
 
-- ## [1] Attach lib
+> ## [1] Attach lib
   - **We should use `require_once` to use of library.**
   - ### Example :
       ```php
       require_once 'Sql.php';
       ```
 
-- ## [2] Create an instance and start connection
+> ## [2] Create an instance and start connection
   - **Now, we need a handler for using `class`**
   - ### Syntax :
       `$DB = new MySQL(Host_Name, Username, Password);`
@@ -50,7 +50,7 @@ In the following, I have written a description on how to use it
       $DB = new MySQL('localhost', 'root', '');
       ```
 
-- ## [3] Create Database
+> ## [3] Create Database
   - **This way you can create a database**
   - ### Syntax :
       `$DB->new_db(Database) : BOOL(true/false)`
@@ -70,7 +70,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## [4] Create Table
+> ## [4] Create Table
   - **This way you can create a table in the database**
   - ### Syntax :
       `$DB->new_table(Database, Table, [ [Column_1, Option_1], [Column_2, Option_2], [Column_3, Option_3]) : BOOL(true/false)`
@@ -102,7 +102,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## [5] Insert data
+> ## [5] Insert data
   - **Use this method to insert data in a database.**
   - ### Syntax :
       `$DB->put(Database, Table, [ Column_1=>Data_1, Column_2=>Data_2, Column_3=>Data_3) : BOOL(true/false)`
@@ -135,7 +135,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## [6] Update data
+> ## [6] Update data
   - **Use this method to update previously registered data.**
   - ### Syntax :
       `$DB->update(Database, Table, [ Search_column=>Column_data, [Column_1=>New_data_1, Column_2=>New_data_2] ]) : BOOL(true/false)`
@@ -168,7 +168,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## [7] Get data
+> ## [7] Get data
   - **Use this method to get data from some column of a row in a table.**
   - ### Syntax :
       `$DB->get(Database, Table, [ Search_column=>Column_data, [Column_1, Column_2] ]) : Array/False`
@@ -203,7 +203,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## [8] Get all data
+> ## [8] Get all data
   - **Use this method to get data from some column of all row in a table.**
   - ### Syntax :
       `$DB->get(Database, Table, [ 'DB_GET_ALL'=>[Column_1, Column_2] ]) : Array/False`
@@ -235,7 +235,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## [9] Delete data
+> ## [9] Delete data
   - **Use this method to delete row from a table.**
   - ### Syntax :
       `$DB->Delete(Database, Table, [ Search_Column=>Column_data ] ]) : Int/False`
@@ -264,7 +264,7 @@ In the following, I have written a description on how to use it
       ```
 
 
-- ## [10] Delete Table (Use Carefully)
+> ## [10] Delete Table (Use Carefully)
   - **Use this method to remove a table of database (drop a table).**
   - ### Syntax :
       `$DB->remove_table(Database, Table) : BOOL(true/false)`
