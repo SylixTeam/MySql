@@ -31,7 +31,7 @@ In the following, I have written a description on how to use it
       $DB = new MySQL('localhost', 'root', '');
       ```
 
-- ## Create a new Database
+- ## Create Database
   - This way you can create a database
   - ### Syntax :
       `$DB->new_db(Database) : BOOL(true/false)`
@@ -42,6 +42,38 @@ In the following, I have written a description on how to use it
   - ### Ex :
       ```php
         if($DB->new_db('MyDB'))
+        {
+            echo 'New DB Created : MyDB';
+        }
+        else
+        {
+            var_dump($DB->error);
+        }
+      ```
+
+- ## Create Table
+  - This way you can create a table in the database
+  - ### Syntax :
+      `$DB->new_table(Database, Table, [ [Column_1, Option_1], [Column_2, Option_2], [Column_3, Option_3]) : BOOL(true/false)`
+      
+      Value | Description
+      ----- | -----------
+      Database | name of a database that already exists
+      Table | name for new table
+      Column | column name
+      Option | some option for column. (default : `VARCHAR(250)`) [_sql code_]
+  - ### Points :
+    - default option for column `id` is `INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY` but you can set your custom options.
+  - ### Ex :
+      ```php
+        if($DB->new_table('MyDB', 'MyTable', [
+            ['id'                                      ],
+            ['first_name'    ,  'VARCHAR(50) NOT NULL' ],
+            ['last_name'     ,  'VARCHAR(50)'          ],
+            ['bio'                                     ],
+            ['email'         ,  'VARCHAR(100) NOT NULL'],
+            ['registry_date' ,  'TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP']
+        ]))
         {
             echo 'New DB Created : MyDB';
         }
