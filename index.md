@@ -15,18 +15,22 @@ In the following, I have written a description on how to use it
       ```php
       require_once 'Sql.php';
       ```
+
 - ## Create an instance and start connection
   - now, we need a handler for using `class`
-  - ### Syntax : `$DB = new MySQL(Host_Name, Username, Password);`
+  - ### Syntax :
+      `$DB = new MySQL(Host_Name, Username, Password);`
   - ### Values :
     - **Host_Name** : your host name
+      -Saeed
     - **Username** : your username
     - **Password** : your password
   - ### Ex :
       ```php
       $DB = new MySQL('localhost', 'root', '');
       ```
-    
+
+
 syntax : `$DB = new MySQL(Host_Name, Username, Password);`
 
 ```
