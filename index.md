@@ -20,16 +20,13 @@ In the following, I have written a description on how to use it
   - now, we need a handler for using `class`
   - ### Syntax :
       `$DB = new MySQL(Host_Name, Username, Password);`
-    Value | Description
-    ----- | -----------
-    **Host_Name** | your host name
-    **Username** | your username
-    **Password** | your password
+      
+      Value | Description
+      ----- | -----------
+      **Host_Name** | your host name
+      **Username** | your username
+      **Password** | your password
   - ### Ex :
-  First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
       ```php
       $DB = new MySQL('localhost', 'root', '');
       ```
