@@ -91,9 +91,9 @@ In the following, I have written a description on how to use it
       Value | Description
       ----- | -----------
       Database | name of a database that already exists
-      Table | name of a table that already exists in Database
+      Table | name of a table that already exists in `Database`
       Column | column name
-      Data | the data you want to save in that column
+      Data | the data you want to save in that `Column`
   - ### Points :
     - if column options have `NOT NULL` ,you should not leave its column empty.
     - You can get last id by : `$DB->id` .
@@ -124,7 +124,7 @@ In the following, I have written a description on how to use it
       Value | Description
       ----- | -----------
       Database | name of a database that already exists
-      Table | name of a table that already exists in Database
+      Table | name of a table that already exists in `Database`
       Search_Column | the name of the column in which the data will be searched
       Column_data | the data we are looking for in the `Search_Column`
       Column | a column whose data will change to `New_data`
@@ -149,7 +149,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## [7] Get data(_SELECT_)
+- ## [7] Get data
   - **Use this method to get data from some column of a row in a table.**
   - ### Syntax :
       `$DB->get(Database, Table, [ Search_column=>Column_data, [Column_1, Column_2] ]) : Array/False`
@@ -157,7 +157,7 @@ In the following, I have written a description on how to use it
       Value | Description
       ----- | -----------
       Database | name of a database that already exists
-      Table | name of a table that already exists in Database
+      Table | name of a table that already exists in `Database`
       Search_Column | the name of the column in which the data will be searched
       Column_data | the data we are looking for in the `Search_Column`
       Column | columns whose data you want
@@ -184,7 +184,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## [8] Get all data(_SELECT_)
+- ## [8] Get all data
   - **Use this method to get data from some column of all row in a table.**
   - ### Syntax :
       `$DB->get(Database, Table, [ 'DB_GET_ALL'=>[Column_1, Column_2] ]) : Array/False`
@@ -192,7 +192,7 @@ In the following, I have written a description on how to use it
       Value | Description
       ----- | -----------
       Database | name of a database that already exists
-      Table | name of a table that already exists in Database
+      Table | name of a table that already exists in `Database`
       Column | columns whose data you want
   - ### Points :
     - for get all Columns data use `*` or `ALL_DATA` instead of Columns name
@@ -215,7 +215,153 @@ In the following, I have written a description on how to use it
             var_dump($DB->error);
         }
       ```
+
+- ## [9] Delete data
+  - **Use this method to delete row from a table.**
+  - ### Syntax :
+      `$DB->Delete(Database, Table, [ Search_Column=>Column_data ] ]) : Int/False`
+      
+      Value | Description
+      ----- | -----------
+      Database | name of a database that already exists
+      Table | name of a table that already exists in `Database`
+      Search_Column | the name of the column in which the data will be searched
+      Column_data | the data we are looking for in the `Search_Column` and Delete it
+  - ### Points :
+    - you can also Delete multiple sections at once
+      ex :
+        `$DB->Delete(Database, Table, [ Search_Column_1=>Column_data_1, Search_Column_2=>Column_data_2 ]);`
+  - ### Ex :
+      ```php
+        if($DB->Delete('MyDB', 'MyTable', ['first_name'=>'Mr.Saeed','id'=>'2', 'id'=>'3']))
+        {
+            echo 'Data Deleted successfully!';
+        }
  
+        else
+        {
+            var_dump($DB->error);
+        }
+      ```
+
+
+- ## [10] Delete Table (Use Carefully)
+  - **Use this method to remove a table of database (drop a table).**
+  - ### Syntax :
+      `$DB->remove_table(Database, Table) : BOOL(true/false)`
+      
+      Value | Description
+      ----- | -----------
+      Database | name of a database that already exists
+      Table | name of a table that already exists in `Database`
+  - ### Ex :
+      ```php
+        if($DB->remove_table('MyDB', 'MyTable'))
+        {
+            echo 'Table Deleted successfully!';
+        }
+        else
+        {
+            var_dump($DB->error);
+        }
+      ```
+
+- ## [11] Delete Database (Use Carefully)
+  - **Use this method to remove a database (drop a database).**
+  - ### Syntax :
+      `$DB->remove_db(Database) : BOOL(true/false)`
+      
+      Value | Description
+      ----- | -----------
+      Database | name of a database that already exists
+  - ### Ex :
+      ```php
+        if($DB->remove_db('MyDB'))
+        {
+            echo 'Database Deleted successfully!';
+        }
+        else
+        {
+            var_dump($DB->error);
+        }
+      ```
+
+- ## [12] Get tables
+  - **Use this method to get a list of tables in a database.**
+  - ### Syntax :
+      `$DB->get_tables(Database) : Array/False`
+      
+      Value | Description
+      ----- | -----------
+      Database | name of a database that already exists
+  - ### Ex :
+      ```php
+        var_dump($DB->get_tables('MyDB'));
+      ```
+
+
+- ## [13] Get databases
+  - **Use this method to get a list of all databases.**
+  - ### Syntax :
+      `$DB->get_dbs() : Array/False`
+      
+  - ### Ex :
+      ```php
+        var_dump($DB->get_dbs());
+      ```
+
+- ## [14] Existence database
+  - **Use this method to check the existence of the database.**
+  - ### Syntax :
+      `$DB->exists_db(Database) : BOOL(true/false)`
+      
+      Value | Description
+      ----- | -----------
+      Database | the name of the database you want to check
+  - ### Ex :
+      ```php
+        if($DB->exists_db("MyDB"))
+        {
+            echo "Database Exists";
+        }
+        else
+        {
+            echo "Database Does Not Exists";
+        }
+      ```
+
+- ## [15] Existence table
+  - **Use this method to check the existence of the table in a database.**
+  - ### Syntax :
+      `$DB->exists_db(Database, Table) : BOOL(true/false)`
+      
+      Value | Description
+      ----- | -----------
+      Database | name of a database that already exists
+      Table | the name of the table you want to check
+  - ### Ex :
+      ```php
+        if($DB->exists_table("MyDB", "MyTable"))
+        {
+            echo "Table Exists";
+        }
+        else
+        {
+            echo "Table Does Not Exists";
+        }
+      ```
+
+- ## [16] Error Handler
+  - **Use this method to check the existence of the table in a database.**
+  - ### Syntax :
+    - Last Error : `$DB->error() : String`
+    - All Errors : `$DB->errors() : String`
+      
+  - ### Ex :
+      ```php
+        echo "Last Error : " . $DB->error;
+        echo "All Errors : " . $DB->errors;
+      ```
 
 
 
