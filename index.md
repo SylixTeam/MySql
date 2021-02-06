@@ -8,13 +8,30 @@ _I hope it is useful for you._
 
 # Guide
 In the following, I have written a description on how to use it
-title | Description
------ | -----------
-[Error Handler](#Error Handler) | Use this method to errors
-      
+**•** | **Title** | **Description**
+----- | --------- | ---------------
+1 | Attach lib | require_once lib
+2 | Start connection | create handler and connect to database
+3 | Create Database | Create new database
+4 | Create Table | Create new table in a database
+5 | Insert data | insert new data in database
+6 | Update data | update previously registered data
+7 | Get data | get data from some column of a row in a table
+8 | Get all data | get data from some column of all row in a table
+9 | Delete data | delete row from a table
+10 | Delete Table | remove a table of database (drop a table)
+11 | Delete Database | remove a database (drop a database)
+12 | Get tables | get a list of tables in a database
+13 | Get databases | get a list of all databases
+14 | Existence database | check the existence of the database
+15 | Existence table | check the existence of the table in a database
+16 |Error Handler | Use this method to get errors
+
+
+
 - ## [1] Attach lib
   - **We should use `require_once` to use of library.**
-  - ### Ex :
+  - ### Example :
       ```php
       require_once 'Sql.php';
       ```
@@ -29,7 +46,7 @@ title | Description
       Host_Name | your host name
       Username | your username
       Password | your password
-  - ### Ex :
+  - ### Example :
       ```php
       $DB = new MySQL('localhost', 'root', '');
       ```
@@ -42,7 +59,7 @@ title | Description
       Value | Description
       ----- | -----------
       Database | a name for new database
-  - ### Ex :
+  - ### Example :
       ```php
         if($DB->new_db('MyDB'))
         {
@@ -67,7 +84,7 @@ title | Description
       Option | some option for column. (default : `VARCHAR(500)`) [_sql code_]
   - ### Points :
     - default option for column `id` is `INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY`, but you can set your custom options.
-  - ### Ex :
+  - ### Example :
       ```php
         if($DB->new_table('MyDB', 'MyTable', [
             ['id'                                      ],
@@ -100,7 +117,7 @@ title | Description
   - ### Points :
     - if column options have `NOT NULL` ,you should not leave its column empty.
     - You can get last id by : `$DB->id` .
-  - ### Ex :
+  - ### Example :
       ```php
         if($DB->put('MyDB', 'MyTable', [
             //The 'id' will be registered automatically (because we don`t set custom option)
@@ -134,7 +151,7 @@ title | Description
       New_Data | the data will be updated in the `Column`
   - ### Points :
     - the Column_data is better to be unique.
-  - ### Ex :
+  - ### Example :
       ```php
         if($DB->update('MyDB', 'MyTable', [
             'first_name'=>'Saeed', //For search
@@ -170,7 +187,7 @@ title | Description
         `$DB->get(Database, Table, [ Search_column=>Column_data, ['*'] ]);`
         or
         `$DB->get(Database, Table, [ Search_column=>Column_data, ['ALL_DATA'] ]);`
-  - ### Ex :
+  - ### Example :
       ```php
         $result = $DB->get('MyDB', 'MyTable', [
             'first_name'=>'Saeed',
@@ -203,7 +220,7 @@ title | Description
         `$DB->get(Database, Table, [ 'DB_GET_ALL'=>['*'] ]);`
         or
         `$DB->get(Database, Table, [ 'DB_GET_ALL'=>['ALL_DATA'] ]);`
-  - ### Ex :
+  - ### Example :
       ```php
         $result = $DB->get('MyDB', 'MyTable', [
             'DB_GET_ALL'=>['first_name', 'last_name', 'bio', 'email']
@@ -234,7 +251,7 @@ title | Description
     - you can also Delete multiple sections at once
       ex :
         `$DB->Delete(Database, Table, [ Search_Column_1=>Column_data_1, Search_Column_2=>Column_data_2 ]);`
-  - ### Ex :
+  - ### Example :
       ```php
         if($DB->Delete('MyDB', 'MyTable', ['first_name'=>'Mr.Saeed','id'=>'2', 'id'=>'3']))
         {
@@ -257,7 +274,7 @@ title | Description
       ----- | -----------
       Database | name of a database that already exists
       Table | name of a table that already exists in `Database`
-  - ### Ex :
+  - ### Example :
       ```php
         if($DB->remove_table('MyDB', 'MyTable'))
         {
@@ -277,7 +294,7 @@ title | Description
       Value | Description
       ----- | -----------
       Database | name of a database that already exists
-  - ### Ex :
+  - ### Example :
       ```php
         if($DB->remove_db('MyDB'))
         {
@@ -297,18 +314,17 @@ title | Description
       Value | Description
       ----- | -----------
       Database | name of a database that already exists
-  - ### Ex :
+  - ### Example :
       ```php
         var_dump($DB->get_tables('MyDB'));
       ```
-
 
 - ## [13] Get databases
   - **Use this method to get a list of all databases.**
   - ### Syntax :
       `$DB->get_dbs() : Array/False`
       
-  - ### Ex :
+  - ### Example :
       ```php
         var_dump($DB->get_dbs());
       ```
@@ -321,7 +337,7 @@ title | Description
       Value | Description
       ----- | -----------
       Database | the name of the database you want to check
-  - ### Ex :
+  - ### Example :
       ```php
         if($DB->exists_db("MyDB"))
         {
@@ -342,7 +358,7 @@ title | Description
       ----- | -----------
       Database | name of a database that already exists
       Table | the name of the table you want to check
-  - ### Ex :
+  - ### Example :
       ```php
         if($DB->exists_table("MyDB", "MyTable"))
         {
@@ -355,12 +371,12 @@ title | Description
       ```
 
 - ## [16] Error Handler
-  - **Use this method to errors.**
+  - **Use this method to get errors.**
   - ### Syntax :
     - Last Error : `$DB->error() : String`
     - All Errors : `$DB->errors() : String`
       
-  - ### Ex :
+  - ### Example :
       ```php
         echo "Last Error : " . $DB->error;
         echo "All Errors : " . $DB->errors;
