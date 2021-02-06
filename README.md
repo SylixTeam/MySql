@@ -379,6 +379,6 @@ In the following, I have written a description on how to use it
 
 
 # Support
-  **if You Upgrade This Library Tell Me About It**
-    >Telegram : (Sylix_Developer)[https://t.me/Sylix_Developer]
-    >Email    : Developers@sylix.ir
+**if You Upgrade This Library Tell Me About It**
+>Telegram : (Sylix_Developer)[https://t.me/Sylix_Developer]
+>Email    : Developers@sylix.ir
