@@ -9,9 +9,9 @@ _I hope it is useful for you._
 # Guide
 In the following, I have written a description on how to use it
 
-## Attach lib
+- ## Attach lib
 we should use `require_once` to use of library
-```
+```php
 require_once 'Sql.php';
 ```
 
