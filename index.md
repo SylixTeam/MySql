@@ -8,7 +8,10 @@ _I hope it is useful for you._
 
 # Guide
 In the following, I have written a description on how to use it
-
+      title | Description
+      ----- | -----------
+      [Error Handler](#Error Handler) | Use this method to errors
+      
 - ## [1] Attach lib
   - **We should use `require_once` to use of library.**
   - ### Ex :
@@ -352,7 +355,7 @@ In the following, I have written a description on how to use it
       ```
 
 - ## [16] Error Handler
-  - **Use this method to check the existence of the table in a database.**
+  - **Use this method to errors.**
   - ### Syntax :
     - Last Error : `$DB->error() : String`
     - All Errors : `$DB->errors() : String`
