@@ -61,9 +61,9 @@ In the following, I have written a description on how to use it
       Database | name of a database that already exists
       Table | name for new table
       Column | column name
-      Option | some option for column. (default : `VARCHAR(250)`) [_sql code_]
+      Option | some option for column. (default : `VARCHAR(500)`) [_sql code_]
   - ### Points :
-    - default option for column `id` is `INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY` but you can set your custom options.
+    - default option for column `id` is `INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY`, but you can set your custom options.
   - ### Ex :
       ```php
         if($DB->new_table('MyDB', 'MyTable', [
@@ -76,6 +76,39 @@ In the following, I have written a description on how to use it
         ]))
         {
             echo 'New DB Created : MyDB';
+        }
+        else
+        {
+            var_dump($DB->error);
+        }
+      ```
+
+- ## Insert data
+  - Use this method to insert data in a database
+  - ### Syntax :
+      `$DB->put(Database, Table, [ Column_1=>Data_1, Column_2=>Data_2, Column_3=>Data_3) : BOOL(true/false)`
+      
+      Value | Description
+      ----- | -----------
+      Database | name of a database that already exists
+      Table | name of a table that already exists in Database
+      Column | column name
+      Data | the data you want to save in that column
+  - ### Points :
+    - if column options have `NOT NULL` ,you should not leave its column empty.
+    - You can get last id by : `$DB->id`
+  - ### Ex :
+      ```php
+        if($DB->put('MyDB', 'MyTable', [
+            //The 'id' will be registered automatically (because we don`t set custom option)
+            'first_name'  =>  'Saeed',                //can't be empty and up than 50 characters(because we set 'VARCHAR(50) NOT NULL')
+            'last_name'   =>  'Golestani',            //can be empty but can`t be up than 50 characters(because we set 'VARCHAR(50)')
+            'bio'         =>  'i`m sad programer :(', //can be empty but can`t be up than 500 characters(because we don`t set custom option and defult is 'VARCHAR(500)')
+            'email'       =>  'Developer@Sylix.ir',   //can't be empty and up than 100 characters(because we set 'VARCHAR(100) NOT NULL')
+            //The 'registry_date' will be registered automatically (because we set 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
+        ]))
+        {
+            echo 'Saeed Registered | id : ' . $DB->id;
         }
         else
         {
