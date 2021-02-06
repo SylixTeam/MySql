@@ -17,12 +17,12 @@ In the following, I have written a description on how to use it
       ```
 
 - ## Create an instance and start connection
-  - now, we need a handler for using `class`
+  - Now, we need a handler for using `class`
   - ### Syntax :
       `$DB = new MySQL(Host_Name, Username, Password);`
       
       Value | Description
-      ---------------------------------------------- | ----------------------------------------------------------------------------------
+      ----- | -----------
       Host_Name | your host name
       Username | your username
       Password | your password
@@ -32,11 +32,13 @@ In the following, I have written a description on how to use it
       ```
 
 - ## Create a new Database
-  - now, we need a handler for using `class`
+  - This way you can create a database
   - ### Syntax :
       `$DB->new_db(Database) : BOOL(true/false)`
-  - ### Values :
-    - **Database** : a name for new database
+      
+      Value | Description
+      ----- | -----------
+      Database | a name for new database
   - ### Ex :
       ```php
         if($DB->new_db('MyDB'))
@@ -48,6 +50,8 @@ In the following, I have written a description on how to use it
             var_dump($DB->error);
         }
       ```
+
+
  
 
 
