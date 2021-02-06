@@ -22,13 +22,46 @@ In the following, I have written a description on how to use it
       `$DB = new MySQL(Host_Name, Username, Password);`
   - ### Values :
     - **Host_Name** : your host name
-      -Saeed
     - **Username** : your username
     - **Password** : your password
   - ### Ex :
       ```php
       $DB = new MySQL('localhost', 'root', '');
       ```
+
+- ## Create a new Database
+  - now, we need a handler for using `class`
+  - ### Syntax :
+      `$DB->new_db(Database) : BOOL(true/false)`
+  - ### Values :
+    - **Database** : a name for new database
+  - ### Ex :
+      ```php
+      if($DB->new_db('MyDB'))
+        {
+            echo 'New DB Created : MyDB';
+        }
+        else
+        {
+            var_dump($DB->error);
+        }
+      ```
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 syntax : `$DB = new MySQL(Host_Name, Username, Password);`
