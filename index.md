@@ -12,7 +12,7 @@ In the following, I have written a description on how to use it
 - ## Attach lib
   - we should use `require_once` to use of library
 
-    ```php
+   Ex : ```php
     require_once 'Sql.php';
     ```
 
