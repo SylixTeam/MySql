@@ -11,8 +11,8 @@ In the following, I have written a description on how to use it
 ----- | --------- | ---------------
 1 | Attach lib | require_once lib
 2 | Start connection | create handler and connect to database
-3 | Create Database | Create new database
-4 | Create Table | Create new table in a database
+3 | Create Database | create new database
+4 | Create Table | create new table in a database
 5 | Insert data | insert new data in database
 6 | Update data | update previously registered data
 7 | Get data | get data from some column of a row in a table
@@ -24,7 +24,7 @@ In the following, I have written a description on how to use it
 13 | Get databases | get a list of all databases
 14 | Existence database | check the existence of the database
 15 | Existence table | check the existence of the table in a database
-16 |Error Handler | Use this method to get errors
+16 |Error Handler | use this method to get errors
 
 
 
@@ -36,7 +36,7 @@ In the following, I have written a description on how to use it
       ```
 
 > ## [2] Create an instance and start connection
-  - **Now, we need a handler for using `class`**
+  - **Now, we need a handler for using `class`.**
   - ### Syntax :
       `$DB = new MySQL(Host_Name, Username, Password);`
       
@@ -51,7 +51,7 @@ In the following, I have written a description on how to use it
       ```
 
 > ## [3] Create Database
-  - **This way you can create a database**
+  - **This way you can create a database.**
   - ### Syntax :
       `$DB->new_db(Database) : BOOL(true/false)`
       
@@ -71,7 +71,7 @@ In the following, I have written a description on how to use it
       ```
 
 > ## [4] Create Table
-  - **This way you can create a table in the database**
+  - **This way you can create a table in the database.**
   - ### Syntax :
       `$DB->new_table(Database, Table, [ [Column_1, Option_1], [Column_2, Option_2], [Column_3, Option_3]) : BOOL(true/false)`
       
@@ -181,7 +181,7 @@ In the following, I have written a description on how to use it
       Column_data | the data we are looking for in the `Search_column`
       Column | columns whose data you want
   - ### Points :
-    - for get all Columns data use `*` or `ALL_DATA` instead of Columns name
+    - for get all Columns data use `*` or `ALL_DATA` instead of Columns name.
       - `$DB->get(Database, Table, [ Search_column=>Column_data, ['*'] ]);`
       - `$DB->get(Database, Table, [ Search_column=>Column_data, ['ALL_DATA'] ]);`
   - ### Example :
@@ -212,7 +212,7 @@ In the following, I have written a description on how to use it
       Table | name of a table that already exists in `Database`
       Column | columns whose data you want
   - ### Points :
-    - for get all Columns data use `*` or `ALL_DATA` instead of Columns name
+    - for get all Columns data use `*` or `ALL_DATA` instead of Columns name.
       - `$DB->get(Database, Table, [ 'DB_GET_ALL'=>['*'] ]);`
       - `$DB->get(Database, Table, [ 'DB_GET_ALL'=>['ALL_DATA'] ]);`
   - ### Example :
@@ -243,7 +243,7 @@ In the following, I have written a description on how to use it
       Search_column | the name of the column in which the data will be searched
       Column_data | the data we are looking for in the `Search_column` and Delete it
   - ### Points :
-    - you can also Delete multiple sections at once
+    - you can also Delete multiple sections at once.
       - `$DB->Delete(Database, Table, [ Search_Column_1=>Column_data_1, Search_Column_2=>Column_data_2 ]);`
   - ### Example :
       ```php
