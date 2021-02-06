@@ -21,7 +21,6 @@ In the following, I have written a description on how to use it
   - ### Syntax :
       `$DB = new MySQL(Host_Name, Username, Password);`
       
-      Value | Description
       ----- | -----------
       **Host_Name** | your host name
       **Username** | your username
