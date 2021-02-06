@@ -9,14 +9,14 @@ _I hope it is useful for you._
 # Guide
 In the following, I have written a description on how to use it
 
-- ## Attach lib
+- ## [1] Attach lib
   - We should use `require_once` to use of library.
   - ### Ex :
       ```php
       require_once 'Sql.php';
       ```
 
-- ## Create an instance and start connection
+- ## [2] Create an instance and start connection
   - Now, we need a handler for using `class`
   - ### Syntax :
       `$DB = new MySQL(Host_Name, Username, Password);`
@@ -31,7 +31,7 @@ In the following, I have written a description on how to use it
       $DB = new MySQL('localhost', 'root', '');
       ```
 
-- ## Create Database
+- ## [3] Create Database
   - This way you can create a database
   - ### Syntax :
       `$DB->new_db(Database) : BOOL(true/false)`
@@ -51,7 +51,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## Create Table
+- ## [4] Create Table
   - This way you can create a table in the database
   - ### Syntax :
       `$DB->new_table(Database, Table, [ [Column_1, Option_1], [Column_2, Option_2], [Column_3, Option_3]) : BOOL(true/false)`
@@ -83,8 +83,8 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## Insert data
-  - Use this method to insert data in a database
+- ## [5] Insert data
+  - Use this method to insert data in a database.
   - ### Syntax :
       `$DB->put(Database, Table, [ Column_1=>Data_1, Column_2=>Data_2, Column_3=>Data_3) : BOOL(true/false)`
       
@@ -96,7 +96,7 @@ In the following, I have written a description on how to use it
       Data | the data you want to save in that column
   - ### Points :
     - if column options have `NOT NULL` ,you should not leave its column empty.
-    - You can get last id by : `$DB->id`
+    - You can get last id by : `$DB->id` .
   - ### Ex :
       ```php
         if($DB->put('MyDB', 'MyTable', [
@@ -116,7 +116,105 @@ In the following, I have written a description on how to use it
         }
       ```
 
+- ## [6] Update data
+  - Use this method to update previously registered data.
+  - ### Syntax :
+      `$DB->update(Database, Table, [ Search_column=>Column_data, [Column_1=>New_data_1, Column_2=>New_data_2] ]) : BOOL(true/false)`
+      
+      Value | Description
+      ----- | -----------
+      Database | name of a database that already exists
+      Table | name of a table that already exists in Database
+      Search_Column | the name of the column in which the data will be searched
+      Column_data | the data we are looking for in the `Search_Column`
+      Column | a column whose data will change to `New_data`
+      New_Data | the data will be updated in the `Column`
+  - ### Points :
+    - the Column_data is better to be unique.
+  - ### Ex :
+      ```php
+        if($DB->update('MyDB', 'MyTable', [
+            'first_name'=>'Saeed', //For search
+            [
+                'first_name'  =>  'Mr.Saeed', //For Update
+                'bio'         =>  'i`m happy programer :(', //For update
+            ]
+        ]))
+        {
+            echo 'Updated successfully!';
+        }
+        else
+        {
+            var_dump($DB->error);
+        }
+      ```
 
+- ## [7] Get data(_SELECT_)
+  - Use this method to get data from some column of a row in a table.
+  - ### Syntax :
+      `$DB->get(Database, Table, [ Search_column=>Column_data, [Column_1, Column_2] ]) : Array/False`
+      
+      Value | Description
+      ----- | -----------
+      Database | name of a database that already exists
+      Table | name of a table that already exists in Database
+      Search_Column | the name of the column in which the data will be searched
+      Column_data | the data we are looking for in the `Search_Column`
+      Column | columns whose data you want
+  - ### Points :
+    - for get all Columns data use `*` or `ALL_DATA` instead of Columns name
+      ex :
+        `$DB->get(Database, Table, [ Search_column=>Column_data, ['*'] ]);`
+        or
+        `$DB->get(Database, Table, [ Search_column=>Column_data, ['ALL_DATA'] ]);`
+  - ### Ex :
+      ```php
+        $result = $DB->get('MyDB', 'MyTable', [
+            'first_name'=>'Saeed',
+            ['first_name', 'bio', 'email']
+        ]);
+
+        if($result !== False)
+        {
+            var_dump($result);
+        }
+        else
+        {
+            var_dump($DB->error);
+        }
+      ```
+
+- ## [8] Get all data(_SELECT_)
+  - Use this method to get data from some column of all row in a table.
+  - ### Syntax :
+      `$DB->get(Database, Table, [ 'DB_GET_ALL'=>[Column_1, Column_2] ]) : Array/False`
+      
+      Value | Description
+      ----- | -----------
+      Database | name of a database that already exists
+      Table | name of a table that already exists in Database
+      Column | columns whose data you want
+  - ### Points :
+    - for get all Columns data use `*` or `ALL_DATA` instead of Columns name
+      ex :
+        `$DB->get(Database, Table, [ 'DB_GET_ALL'=>['*'] ]);`
+        or
+        `$DB->get(Database, Table, [ 'DB_GET_ALL'=>['ALL_DATA'] ]);`
+  - ### Ex :
+      ```php
+        $result = $DB->get('MyDB', 'MyTable', [
+            'DB_GET_ALL'=>['first_name', 'last_name', 'bio', 'email']
+        ]);
+
+        if($result !== False)
+        {
+            var_dump($result);
+        }
+        else
+        {
+            var_dump($DB->error);
+        }
+      ```
  
 
 
