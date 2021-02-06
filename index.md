@@ -1,12 +1,33 @@
-## Welcome to GitHub Pages
+# This is a library for easy use of the MySql :)
+When I started programming, the database was very confusing to me, and I was using `json`, which was really awful.
+Later I tried to learn the database !
+And today I prepared these methods so that novices can use the database more easily.
 
-You can use the [editor on GitHub](https://github.com/SylixTeam/MySql/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+_I hope it is useful for you._
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+# Guide
+In the following, I have written a description on how to use it
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Attach lib
+we should use `require_once` to use of library
+```
+require_once 'Sql.php';
+```
+
+## Create an instance and start connection
+now, we need a handler for using `class`
+### Description :
+syntax : `$DB = new MySQL(Host_Name, Username, Password);`
+
+```
+$DB = new MySQL(Host_Name, Username, Password);
+```
+
+Here is a list of methods for guide you to how can to use :
+
+
+```
 
 ```markdown
 Syntax highlighted code block
