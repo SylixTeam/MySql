@@ -305,7 +305,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## [12] Get tables
+> ## [12] Get tables
   - **Use this method to get a list of tables in a database.**
   - ### Syntax :
       `$DB->get_tables(Database) : Array/False`
@@ -318,7 +318,7 @@ In the following, I have written a description on how to use it
         var_dump($DB->get_tables('MyDB'));
       ```
 
-- ## [13] Get databases
+> ## [13] Get databases
   - **Use this method to get a list of all databases.**
   - ### Syntax :
       `$DB->get_dbs() : Array/False`
@@ -328,7 +328,7 @@ In the following, I have written a description on how to use it
         var_dump($DB->get_dbs());
       ```
 
-- ## [14] Existence database
+> ## [14] Existence database
   - **Use this method to check the existence of the database.**
   - ### Syntax :
       `$DB->exists_db(Database) : BOOL(true/false)`
@@ -348,7 +348,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## [15] Existence table
+> ## [15] Existence table
   - **Use this method to check the existence of the table in a database.**
   - ### Syntax :
       `$DB->exists_db(Database, Table) : BOOL(true/false)`
@@ -369,7 +369,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
-- ## [16] Error Handler
+>> ## [16] Error Handler
   - **Use this method to get errors.**
   - ### Syntax :
     - Last Error : `$DB->error() : String`
