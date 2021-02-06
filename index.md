@@ -144,8 +144,8 @@ In the following, I have written a description on how to use it
       ----- | -----------
       Database | name of a database that already exists
       Table | name of a table that already exists in `Database`
-      Search_Column | the name of the column in which the data will be searched
-      Column_data | the data we are looking for in the `Search_Column`
+      Search_column | the name of the column in which the data will be searched
+      Column_data | the data we are looking for in the `Search_column`
       Column | a column whose data will change to `New_data`
       New_Data | the data will be updated in the `Column`
   - ### Points :
@@ -177,15 +177,13 @@ In the following, I have written a description on how to use it
       ----- | -----------
       Database | name of a database that already exists
       Table | name of a table that already exists in `Database`
-      Search_Column | the name of the column in which the data will be searched
-      Column_data | the data we are looking for in the `Search_Column`
+      Search_column | the name of the column in which the data will be searched
+      Column_data | the data we are looking for in the `Search_column`
       Column | columns whose data you want
   - ### Points :
     - for get all Columns data use `*` or `ALL_DATA` instead of Columns name
-      ex :
-        `$DB->get(Database, Table, [ Search_column=>Column_data, ['*'] ]);`
-        or
-        `$DB->get(Database, Table, [ Search_column=>Column_data, ['ALL_DATA'] ]);`
+      - `$DB->get(Database, Table, [ Search_column=>Column_data, ['*'] ]);`
+      - `$DB->get(Database, Table, [ Search_column=>Column_data, ['ALL_DATA'] ]);`
   - ### Example :
       ```php
         $result = $DB->get('MyDB', 'MyTable', [
@@ -215,10 +213,8 @@ In the following, I have written a description on how to use it
       Column | columns whose data you want
   - ### Points :
     - for get all Columns data use `*` or `ALL_DATA` instead of Columns name
-      ex :
-        `$DB->get(Database, Table, [ 'DB_GET_ALL'=>['*'] ]);`
-        or
-        `$DB->get(Database, Table, [ 'DB_GET_ALL'=>['ALL_DATA'] ]);`
+      - `$DB->get(Database, Table, [ 'DB_GET_ALL'=>['*'] ]);`
+      - `$DB->get(Database, Table, [ 'DB_GET_ALL'=>['ALL_DATA'] ]);`
   - ### Example :
       ```php
         $result = $DB->get('MyDB', 'MyTable', [
@@ -244,12 +240,11 @@ In the following, I have written a description on how to use it
       ----- | -----------
       Database | name of a database that already exists
       Table | name of a table that already exists in `Database`
-      Search_Column | the name of the column in which the data will be searched
-      Column_data | the data we are looking for in the `Search_Column` and Delete it
+      Search_column | the name of the column in which the data will be searched
+      Column_data | the data we are looking for in the `Search_column` and Delete it
   - ### Points :
     - you can also Delete multiple sections at once
-      ex :
-        `$DB->Delete(Database, Table, [ Search_Column_1=>Column_data_1, Search_Column_2=>Column_data_2 ]);`
+      - `$DB->Delete(Database, Table, [ Search_Column_1=>Column_data_1, Search_Column_2=>Column_data_2 ]);`
   - ### Example :
       ```php
         if($DB->Delete('MyDB', 'MyTable', ['first_name'=>'Mr.Saeed','id'=>'2', 'id'=>'3']))
@@ -369,7 +364,7 @@ In the following, I have written a description on how to use it
         }
       ```
 
->> ## [16] Error Handler
+> ## [16] Error Handler
   - **Use this method to get errors.**
   - ### Syntax :
     - Last Error : `$DB->error() : String`
