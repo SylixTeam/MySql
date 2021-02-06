@@ -10,14 +10,14 @@ _I hope it is useful for you._
 In the following, I have written a description on how to use it
 
 - ## [1] Attach lib
-  - We should use `require_once` to use of library.
+  - **We should use `require_once` to use of library.**
   - ### Ex :
       ```php
       require_once 'Sql.php';
       ```
 
 - ## [2] Create an instance and start connection
-  - Now, we need a handler for using `class`
+  - **Now, we need a handler for using `class`**
   - ### Syntax :
       `$DB = new MySQL(Host_Name, Username, Password);`
       
@@ -32,7 +32,7 @@ In the following, I have written a description on how to use it
       ```
 
 - ## [3] Create Database
-  - This way you can create a database
+  - **This way you can create a database**
   - ### Syntax :
       `$DB->new_db(Database) : BOOL(true/false)`
       
@@ -52,7 +52,7 @@ In the following, I have written a description on how to use it
       ```
 
 - ## [4] Create Table
-  - This way you can create a table in the database
+  - **This way you can create a table in the database**
   - ### Syntax :
       `$DB->new_table(Database, Table, [ [Column_1, Option_1], [Column_2, Option_2], [Column_3, Option_3]) : BOOL(true/false)`
       
@@ -84,7 +84,7 @@ In the following, I have written a description on how to use it
       ```
 
 - ## [5] Insert data
-  - Use this method to insert data in a database.
+  - **Use this method to insert data in a database.**
   - ### Syntax :
       `$DB->put(Database, Table, [ Column_1=>Data_1, Column_2=>Data_2, Column_3=>Data_3) : BOOL(true/false)`
       
@@ -117,7 +117,7 @@ In the following, I have written a description on how to use it
       ```
 
 - ## [6] Update data
-  - Use this method to update previously registered data.
+  - **Use this method to update previously registered data.**
   - ### Syntax :
       `$DB->update(Database, Table, [ Search_column=>Column_data, [Column_1=>New_data_1, Column_2=>New_data_2] ]) : BOOL(true/false)`
       
@@ -150,7 +150,7 @@ In the following, I have written a description on how to use it
       ```
 
 - ## [7] Get data(_SELECT_)
-  - Use this method to get data from some column of a row in a table.
+  - **Use this method to get data from some column of a row in a table.**
   - ### Syntax :
       `$DB->get(Database, Table, [ Search_column=>Column_data, [Column_1, Column_2] ]) : Array/False`
       
@@ -185,7 +185,7 @@ In the following, I have written a description on how to use it
       ```
 
 - ## [8] Get all data(_SELECT_)
-  - Use this method to get data from some column of all row in a table.
+  - **Use this method to get data from some column of all row in a table.**
   - ### Syntax :
       `$DB->get(Database, Table, [ 'DB_GET_ALL'=>[Column_1, Column_2] ]) : Array/False`
       
