@@ -11,10 +11,10 @@ In the following, I have written a description on how to use it
 
 - ## Attach lib
   - we should use `require_once` to use of library
-
-   Ex : ```php
-    require_once 'Sql.php';
-    ```
+  - ex:
+      ```php
+      require_once 'Sql.php';
+      ```
 
 ## Create an instance and start connection
 now, we need a handler for using `class`
