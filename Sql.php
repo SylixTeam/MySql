@@ -75,7 +75,7 @@ class MySQL
         {
             foreach ($Data as $key=>$value)
             {
-                if($key == "DB_GET_ALL")
+                if(is_array($value)
                 {
                     ####################################################################################################
                     if ($this->exists_db($DB))
@@ -149,13 +149,9 @@ class MySQL
                         ####################################################################################################
                         foreach($Data as $key=>$value)
                         {
-                            if ($key == "DB_GET")
+                            if (is_array($value)
                             {
-                                $Targets = $this->Tool_3($Data["DB_GET"]);
-                            }
-                            elseif ($key == "DB_GET_ALL")
-                            {
-                                $Targets = "*";
+                                $Targets = $this->Tool_3($Data[$key]);
                             }
                             else
                             {
@@ -256,9 +252,9 @@ class MySQL
                         ####################################################################################################
                         foreach($Data as $key=>$value)
                         {
-                            if($key == "DB_SET")
+                            if(is_array($value))
                             {
-                                $Updates = $this->Tool_2($Data["DB_SET"]);
+                                $Updates = $this->Tool_2($Data[$key]);
                             }
                             else
                             {
