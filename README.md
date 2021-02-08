@@ -204,7 +204,7 @@ In the following, I have written a description on how to use it
 > ## [8] Get all data
   - **Use this method to get data from some column of all row in a table.**
   - ### Syntax :
-      `$DB->get(Database, Table, [ 'DB_GET_ALL'=>[Column_1, Column_2] ]) : Array/False`
+      `$DB->get(Database, Table, [ [Column_1, Column_2] ]) : Array/False`
       
       Value | Description
       ----- | -----------
@@ -213,12 +213,12 @@ In the following, I have written a description on how to use it
       Column | columns whose data you want
   - ### Points :
     - for get all Columns data use `*` or `ALL_DATA` instead of Columns name.
-      - `$DB->get(Database, Table, [ 'DB_GET_ALL'=>['*'] ]);`
-      - `$DB->get(Database, Table, [ 'DB_GET_ALL'=>['ALL_DATA'] ]);`
+      - `$DB->get(Database, Table, [ ['*'] ]);`
+      - `$DB->get(Database, Table, [ ['ALL_DATA'] ]);`
   - ### Example :
       ```php
         $result = $DB->get('MyDB', 'MyTable', [
-            'DB_GET_ALL'=>['first_name', 'last_name', 'bio', 'email']
+            ['first_name', 'last_name', 'bio', 'email']
         ]);
 
         if($result !== False)
